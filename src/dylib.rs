@@ -27,7 +27,7 @@ impl Dylib {
             return true
         }
         let name = CString::new(path).unwrap();
-        let ptr = libc::dlopen(name.as_ptr() as *const c_char, libc::RTLD_LAZY);
+        let ptr = libc::dlopen(name.as_ptr() as *const c_char, 1);
         if ptr.is_null() {
             return false
         }
